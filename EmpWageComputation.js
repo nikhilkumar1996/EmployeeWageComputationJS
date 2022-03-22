@@ -18,4 +18,16 @@ function getEmpHrs(empCheck){
 let empCheck = Math.floor(Math.random()*10)%3;
 let empHrs =getEmpHrs(empCheck);
 let empWage=empHrs*WagePerHrs;
-console.log("Employee Wage:",empWage);
+console.log("Employee Wage for a day:",empWage);
+
+{
+    const totalWorkingDays = 20;
+    let totalempHrs=0;
+    for(let day =1;day<=totalWorkingDays;day++){
+        let empCheck =Math.floor(Math.random()*10)%3;
+        totalempHrs += getEmpHrs(empCheck);
+    }
+
+    let totalEmpWage = totalempHrs * WagePerHrs;
+    console.log("Total Hours :"+ totalempHrs, "Total Employee Wage :" + totalEmpWage);
+}
