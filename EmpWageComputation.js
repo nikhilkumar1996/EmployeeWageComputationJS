@@ -3,6 +3,8 @@ const isFullTime  =2;
 const PartimeHrs  =4;
 const FullTimeHrs =8;
 const WagePerHrs  =20;
+const totalWorkingDays = 20;
+const totalWorkingHrs = 160;
 
 function getEmpHrs(empCheck){
     switch (empCheck){
@@ -15,19 +17,14 @@ function getEmpHrs(empCheck){
     }
 
 }
-let empCheck = Math.floor(Math.random()*10)%3;
-let empHrs =getEmpHrs(empCheck);
-let empWage=empHrs*WagePerHrs;
-console.log("Employee Wage for a day:",empWage);
-
-{
-    const totalWorkingDays = 20;
-    let totalempHrs=0;
-    for(let day =1;day<=totalWorkingDays;day++){
+    let empWorkingDays=0;
+    let empWorkingHrs =0;
+    let empHrs = 0;
+    while(empWorkingDays<totalWorkingDays && empWorkingHrs<=totalWorkingHrs){
         let empCheck =Math.floor(Math.random()*10)%3;
-        totalempHrs += getEmpHrs(empCheck);
+        empHrs += getEmpHrs(empCheck);
+        empWorkingDays++;
     }
 
-    let totalEmpWage = totalempHrs * WagePerHrs;
-    console.log("Total Hours :"+ totalempHrs, "Total Employee Wage :" + totalEmpWage);
-}
+    let totalEmpWage = empHrs * WagePerHrs;
+    console.log("Total Working Days:"+totalWorkingDays,"Total Employee Hours :"+ empHrs, "Total Employee Wage :" + totalEmpWage);
